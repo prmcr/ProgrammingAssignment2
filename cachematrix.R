@@ -1,9 +1,6 @@
-## Put comments here that give an overall description of what your
-## functions do
 
-
-## Write a short comment describing this function
-# 
+## Returns a list of first class objects to store and retrieve the matrix `x` as well as the cached inverse value `m`
+## 
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -20,7 +17,11 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve is an alternate function for `solve` that 
+##   1. takes as argument the list returned by `makeCacheMatrix` 
+##   2. returns the stored inverse matrix *if* the argument's `getInverse` object does not return a NULL *else*
+##   3. computes the inverse using `solve` and stores it for further use
+
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -38,4 +39,4 @@ cacheSolve <- function(x, ...) {
 # X <- matrix(rnorm(25),5,5)
 # Y <- makeCacheMatrix(X)
 # cacheSolve(Y)
-
+# cacheSolve(Y) # returns the cached inverse the second time cacheSolve(Y) is called
